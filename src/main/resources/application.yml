@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: dev
+
+
+server:
+  port: 8080
+
+
+elastic-job:
+  registry:
+    namespace: dip-elastic-task
+  jobs:
+    - job-name: simplePropertyJobTest
+      cron: 0/1 * * * * ?
+      sharding-total-count: 1
+      description: 测试任务
+    - job-name: simpleAnnoJobTest
+      cron: 0/1 * * * * ?
+      sharding-total-count: 1
+      description: 简单注解任务测试配置文件覆盖测试
+logging:
+  level: debug
